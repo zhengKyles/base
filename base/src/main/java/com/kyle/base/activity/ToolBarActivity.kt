@@ -33,6 +33,9 @@ abstract class ToolBarActivity<D : ViewDataBinding> : DataBindingActivity<D>() {
         val titleParam = LinearLayout.LayoutParams(MATCH_PARENT, mTitleBarHeight)
         titleView.layoutParams = titleParam
         rootView.addView(titleView, 0)
+        titleBinding.rlBack.setOnClickListener {
+            onBackPressed()
+        }
     }
 
     protected fun setTitle(title: String) {
