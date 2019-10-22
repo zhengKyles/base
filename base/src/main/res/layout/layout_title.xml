@@ -31,7 +31,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:singleLine="true"
-                android:text="dadsadsaaaaaaaaaaaaaaaaaaaaaadadsadsaaaaaaaaaaaaaaaaaaaaaa"
+                android:text=""
                 android:textSize="16sp" />
 
             <TextView
@@ -39,7 +39,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:singleLine="true"
-                android:text="qqqqq"
+                android:text=""
                 android:textSize="16sp"
                 android:visibility="gone" />
         </LinearLayout>
