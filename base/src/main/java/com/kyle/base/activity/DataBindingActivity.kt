@@ -14,20 +14,21 @@ import com.kyle.base.interfaces.BaseInterface
  * 看了我的代码，感动了吗?
  */
 abstract class DataBindingActivity<D : ViewDataBinding> : BaseActivity(), BaseInterface {
-    protected var binding: D? = null
+    protected lateinit var binding: D
     protected lateinit var rootView: LinearLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initContentView()
         initView()
+        loadData()
     }
 
      open fun initContentView() {
         val contentView = View.inflate(this, layoutId, null)
         rootView = LinearLayout(this)
         rootView.orientation = LinearLayout.VERTICAL
-        binding = DataBindingUtil.bind(contentView)
+        binding = DataBindingUtil.bind(contentView)!!
         rootView.addView(contentView)
         setContentView(rootView)
     }
