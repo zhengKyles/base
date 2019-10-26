@@ -2,6 +2,7 @@ package com.kyle.base.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.kyle.base.ActivityManager
 
 /**
  * @author : kyle
@@ -14,7 +15,9 @@ open class BaseActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        savedInstanceState?.let { listener.onCreate(this, it) }
+         listener.onCreate(this, savedInstanceState)
+        ActivityManager.getInstance().addActivity(this)
+
     }
 
     override fun onStart() {

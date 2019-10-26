@@ -10,7 +10,7 @@ import android.os.Bundle
  */
 interface OnActivityStateChangedListener {
     fun onDestroy(activity: BaseActivity)
-    fun onCreate(activity: BaseActivity,savedInstanceState: Bundle)
+    fun onCreate(activity: BaseActivity,savedInstanceState: Bundle?)
     fun onStart(activity: BaseActivity)
     fun onResume(activity: BaseActivity)
     fun onPause(activity: BaseActivity)
