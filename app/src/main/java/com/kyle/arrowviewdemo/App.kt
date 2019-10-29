@@ -12,7 +12,7 @@ class App:Application() {
             override fun onDestroy(activity: BaseActivity) {
             }
 
-            override fun onCreate(activity: BaseActivity, savedInstanceState: Bundle) {
+            override fun onCreate(activity: BaseActivity, savedInstanceState: Bundle?) {
             }
 
             override fun onStart(activity: BaseActivity) {

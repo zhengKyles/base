@@ -22,7 +22,7 @@ import com.kyle.base.databinding.LayoutTitleBinding
  * 看了我的代码，感动了吗?
  */
 abstract class ToolBarActivity<D : ViewDataBinding> : DataBindingActivity<D>() {
-    private lateinit var titleBinding: LayoutTitleBinding
+    protected lateinit var titleBinding: LayoutTitleBinding
     private var mTitleBarHeight: Int = 0
 
     override fun initContentView() {
