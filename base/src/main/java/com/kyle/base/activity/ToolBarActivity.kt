@@ -47,42 +47,16 @@ abstract class ToolBarActivity<D : ViewDataBinding> : DataBindingActivity<D>() {
         titleBinding.tvSubTitle.visibility = View.VISIBLE
     }
 
-    protected fun setRightBtns(vararg entity: RightEntity) {
-        titleBinding.llRight.removeAllViews()
-        lateinit var view: View
-        entity.forEach continuing@{
-            val param: LinearLayout.LayoutParams = LinearLayout.LayoutParams(WRAP_CONTENT, WRAP_CONTENT)
-            when (it.obj) {
-                is String -> {
-                    view = TextView(this)
-                    (view as TextView).text = it.obj as String
-                    (view as TextView).setTextColor(it.mColor)
-                    (view as TextView).setTextSize(COMPLEX_UNIT_SP, it.mTextSize)
-                }
-                is Int -> {
-                    view = ImageView(this)
-                    (view as ImageView).setImageResource(it.obj as Int)
-                    if (it.mSize != 0) {
-                        param.width = it.mSize
-                        param.height = it.mSize
-                    } else {
-                        param.width = mTitleBarHeight / 2
-                        param.height = mTitleBarHeight / 2
-                    }
-                }
-                else -> {
-                    return@continuing
-                }
-            }
-            param.marginEnd = DensityUtil.dip2px(this, 10F)
-            titleBinding.llRight.addView(view, param)
-            view.setOnClickListener(it.onClickListener)
-        }
+    protected fun addRightBtn(view: ImageView, onClickListener: View.OnClickListener) {
+        val param = LinearLayout.LayoutParams(DensityUtil.dip2px(this, 20f), DensityUtil.dip2px(this, 20f))
+        titleBinding.llRight.addView(view, param)
+        view.setOnClickListener(onClickListener)
     }
 
-    class RightEntity(var obj: Any, var onClickListener: View.OnClickListener) {
-        var mSize: Int = 0
-        var mColor = Color.DKGRAY
-        var mTextSize = 14f
+    protected fun addRightBtn(view: TextView, onClickListener: View.OnClickListener) {
+        val param = LinearLayout.LayoutParams(WRAP_CONTENT, WRAP_CONTENT)
+        titleBinding.llRight.addView(view, param)
+        view.setOnClickListener(onClickListener)
     }
+
 }
