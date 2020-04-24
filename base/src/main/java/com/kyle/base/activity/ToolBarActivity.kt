@@ -1,7 +1,5 @@
 package com.kyle.base.activity
 
-import android.graphics.Color
-import android.util.TypedValue.COMPLEX_UNIT_SP
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
@@ -27,7 +25,8 @@ abstract class ToolBarActivity<D : ViewDataBinding> : DataBindingActivity<D>() {
 
     override fun initContentView() {
         super.initContentView()
-        titleBinding = DataBindingUtil.inflate(LayoutInflater.from(this), R.layout.layout_title, null, false)
+        titleBinding =
+            DataBindingUtil.inflate(LayoutInflater.from(this), R.layout.layout_title, null, false)
         val titleView = titleBinding.root
         mTitleBarHeight = DensityUtil.dip2px(this, 50f)
         val titleParam = LinearLayout.LayoutParams(MATCH_PARENT, mTitleBarHeight)
@@ -47,10 +46,23 @@ abstract class ToolBarActivity<D : ViewDataBinding> : DataBindingActivity<D>() {
         titleBinding.tvSubTitle.visibility = View.VISIBLE
     }
 
+    protected fun addRightBtn(intRes: Int, onClickListener: View.OnClickListener) {
+        val imageView = ImageView(this)
+        imageView.setImageResource(intRes)
+        addRightBtn(imageView, onClickListener)
+    }
+
     protected fun addRightBtn(view: ImageView, onClickListener: View.OnClickListener) {
-        val param = LinearLayout.LayoutParams(DensityUtil.dip2px(this, 20f), DensityUtil.dip2px(this, 20f))
+        val param =
+            LinearLayout.LayoutParams(DensityUtil.dip2px(this, 20f), DensityUtil.dip2px(this, 20f))
         titleBinding.llRight.addView(view, param)
         view.setOnClickListener(onClickListener)
+    }
+
+    protected fun addRightBtn(rightTitle: String, onClickListener: View.OnClickListener) {
+        val textView = TextView(this)
+        textView.text = rightTitle
+        addRightBtn(textView, onClickListener)
     }
 
     protected fun addRightBtn(view: TextView, onClickListener: View.OnClickListener) {
