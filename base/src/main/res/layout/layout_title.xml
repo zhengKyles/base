@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout>
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                    android:layout_width="match_parent"
-                    android:layout_height="51dp">
+            android:layout_width="match_parent"
+            android:layout_height="51dp">
 
         <RelativeLayout
                 android:id="@+id/rl_back"
@@ -14,7 +14,7 @@
                     android:id="@+id/arrow"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"/>
+                    android:layout_centerInParent="true" />
         </RelativeLayout>
 
         <LinearLayout
@@ -33,7 +33,7 @@
                     android:layout_height="wrap_content"
                     android:singleLine="true"
                     android:text=""
-                    android:textSize="16sp"/>
+                    android:textSize="16sp" />
 
             <TextView
                     android:id="@+id/tv_sub_title"
@@ -42,7 +42,7 @@
                     android:singleLine="true"
                     android:text=""
                     android:textSize="16sp"
-                    android:visibility="gone"/>
+                    android:visibility="gone" />
         </LinearLayout>
 
         <LinearLayout
@@ -51,13 +51,15 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:gravity="center_vertical"
-                android:minWidth="50dp"
-                android:orientation="horizontal"/>
+                android:gravity="center"
+                android:layout_marginEnd="20dp"
+                android:orientation="horizontal"
+                android:visibility="invisible" />
+
         <View
                 android:id="@+id/view_line"
-                android:layout_alignParentBottom="true"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"/>
+                android:layout_height="1dp"
+                android:layout_alignParentBottom="true" />
     </RelativeLayout>
 </layout>

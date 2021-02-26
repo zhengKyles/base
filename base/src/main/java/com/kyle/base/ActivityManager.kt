@@ -1,9 +1,8 @@
 package com.kyle.base
 
+
 import android.app.Activity
-
-
-import java.util.Stack
+import java.util.*
 
 /**
  * 应用程序Activity管理类
@@ -36,6 +35,14 @@ class ActivityManager private constructor() {
         }
     }
 
+    /**
+     * 获得最上层activity
+     */
+    fun getTopActivity(): Activity? {
+        return if (activityStack.size > 0) {
+            activityStack.peek()
+        } else null
+    }
     /**
      * 结束指定类名的Activity
      */

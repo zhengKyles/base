@@ -55,8 +55,7 @@ abstract class ToolBarActivity<D : ViewDataBinding> : DataBindingActivity<D>() {
     protected fun addRightBtn(view: ImageView, onClickListener: View.OnClickListener) {
         val param =
             LinearLayout.LayoutParams(DensityUtil.dip2px(this, 20f), DensityUtil.dip2px(this, 20f))
-        titleBinding.llRight.addView(view, param)
-        view.setOnClickListener(onClickListener)
+        addRightBtn(view, param,onClickListener)
     }
 
     protected fun addRightBtn(rightTitle: String, onClickListener: View.OnClickListener) {
@@ -67,7 +66,16 @@ abstract class ToolBarActivity<D : ViewDataBinding> : DataBindingActivity<D>() {
 
     protected fun addRightBtn(view: TextView, onClickListener: View.OnClickListener) {
         val param = LinearLayout.LayoutParams(WRAP_CONTENT, WRAP_CONTENT)
+        addRightBtn(view, param,onClickListener)
+    }
+
+    protected fun addRightBtn(
+        view: View,
+        param: LinearLayout.LayoutParams,
+        onClickListener: View.OnClickListener
+    ) {
         titleBinding.llRight.addView(view, param)
+        titleBinding.llRight.visibility=View.VISIBLE
         view.setOnClickListener(onClickListener)
     }
 
