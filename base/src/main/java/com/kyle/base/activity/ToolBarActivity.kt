@@ -74,6 +74,8 @@ abstract class ToolBarActivity<D : ViewDataBinding> : DataBindingActivity<D>() {
         param: LinearLayout.LayoutParams,
         onClickListener: View.OnClickListener
     ) {
+        param.leftMargin=DensityUtil.dip2px(this,5f)
+        param.rightMargin=DensityUtil.dip2px(this,5f)
         titleBinding.llRight.addView(view, param)
         titleBinding.llRight.visibility=View.VISIBLE
         view.setOnClickListener(onClickListener)

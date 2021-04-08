@@ -12,7 +12,6 @@ abstract class DataBindingFragment<D : ViewDataBinding> : BaseFragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = DataBindingUtil.inflate(inflater, layoutId, null, false)
         initView()
-        loadData()
         return binding.root
     }
 }

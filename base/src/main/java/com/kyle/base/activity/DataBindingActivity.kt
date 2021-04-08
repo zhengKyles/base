@@ -21,7 +21,6 @@ abstract class DataBindingActivity<D : ViewDataBinding> : BaseActivity(), BaseIn
         super.onCreate(savedInstanceState)
         initContentView()
         initView()
-        loadData()
     }
 
      open fun initContentView() {
